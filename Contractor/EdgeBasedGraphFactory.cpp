@@ -270,17 +270,15 @@ void EdgeBasedGraphFactory::Run(const char * originalEdgeDataFilename, lua_State
                         }
                         unsigned penalty = 0;
                         short turnInstruction = AnalyzeTurn(u, v, w, penalty, myLuaState);
-                        //if(turnInstruction == TurnInstructions.UTurn)
-                        //    distance += speedProfile.uTurnPenalty;
+                        if(turnInstruction == TurnInstructions.UTurn)
+                            distance += speedProfile.uTurnPenalty;
 //                        if(!edgeData1.isAccessRestricted && edgeData2.isAccessRestricted) {
 //                            distance += TurnInstructions.AccessRestrictionPenalty;
 //                            turnInstruction |= TurnInstructions.AccessRestrictionFlag;
 //                        }
                         distance += penalty;
 						
-
                         //distance += heightPenalty;
-                        //distance += ComputeTurnPenalty(u, v, w);
                         assert(edgeData1.edgeBasedNodeID != edgeData2.edgeBasedNodeID);
                         if(originalEdgeData.size() == originalEdgeData.capacity()-3) {
                             originalEdgeData.reserve(originalEdgeData.size()*1.2);
