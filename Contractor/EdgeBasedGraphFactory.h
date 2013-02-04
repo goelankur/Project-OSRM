@@ -145,7 +145,6 @@ public:
     void Run(const char * originalEdgeDataFilename, lua_State *myLuaState);
     void GetEdgeBasedEdges( DeallocatingVector< EdgeBasedEdge >& edges );
     void GetEdgeBasedNodes( DeallocatingVector< EdgeBasedNode> & nodes);
-    void GetOriginalEdgeData( std::vector< OriginalEdgeData> & originalEdgeData);
     short AnalyzeTurn(const NodeID u, const NodeID v, const NodeID w, unsigned& penalty, lua_State *myLuaState) const;
     unsigned GetNumberOfNodes() const;
 };
